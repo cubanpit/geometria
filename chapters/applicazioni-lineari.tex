@@ -6,54 +6,46 @@
 	\begin{equation*}
 		T(x+y)=T(x)+T(y)\qeq T(\lambda x)=\lambda T(x),
 	\end{equation*}
-	dove i primi membri delle uguaglianze sono operazioni in $V$, e i secondi sono operazioni in $Z$.
+	dove i primi membri delle uguaglianze sono operazioni in $V$, e i secondi sono operazioni in $Z$ (indicando con $+$ e $\cdot$ le due operazioni interne per entrambi gli spazi).
 \end{definizione}
 Le applicazioni lineari sono dunque degli omomorfismi tra spazi vettoriali, in quanto ne preservano la struttura data dalle operazioni interne.
-In ogni caso, vale sempre la relazione $T(0_V)=0_Z$, poiché $T(0_V)=T(0_V+0_V)=T(0_V)+T(0_V)$, da cui $T(0_V)=0_Z$.
-Lo spazio delle applicazioni lineari da $V$ a $Z$ è indicato con $\lin(V,Z)$.
-Un'applicazione lineare da uno spazio in s\'e stesso è detta \emph{endomorfismo lineare} (o soltanto endomorfismo).
+Per linearità, vale sempre la relazione $T(0_V)=0_Z$, poiché $T(0_V)=T(0_V+0_V)=T(0_V)+T(0_V)$, da cui $T(0_V)=0_Z$ sottraendo $T(0_V)$ a entrambi i membri: quest aè una condizione facile da usare per verificare la linearità di una data funzione.
+L'insieme delle applicazioni lineari da $V$ a $Z$ è indicato con $\lin(V,Z)$.
+Un'applicazione lineare da uno spazio in s\'e stesso è detta \emph{endomorfismo} (lineare), e indichiamo l'insieme degli endomorfismi di uno spazio $V$ con $\End(V)$.
 
-Un esempio che incontreremo spesso di seguito è la \emph{proiezioe canonica}.
-Sia $W\leq V$: si chiama proiezione canonica la funzione $\pi\colon V\to V\quot W$, che ad un elemento $  x\in V$ associa la classe di equivalenza $W+  x$, appartenente a $V\quot W$.
-Tale funzione preserva la somma, in quanto per $  a,  b\in V$, $\pi(  a+  b)=W+(  a+  b)$ che per le definizioni precedenti equivale a $(W+  a)+(W+  b)=\pi(  a)+\pi(  b)$.
-Analogamente, conserva anche il prodotto scalare poiché $\pi(\lambda  a)=W+\lambda  a=\lambda(W+  a)=\lambda\pi(  a)$.
-La funzione $\pi$ è quindi un'applicazione lineare.
-
-Vi sono alcune applicazioni particolari da tenere presente:
+\paragraph{Esempi}
 \begin{itemize}
-	\item L'applicazione identità di $V$, indicata con $\id_V$, per la quale $\id_V(v)=v$ per ogni $v\in V$.
-	\item L'applicazione nulla che associa ad ogni elemento lo zero dello spazio di arrivo.
+	\item L'applicazione identità di $V$, indicata con $\id_V$, per la quale $\id_V(v)=v$ per ogni $v\in V$, è ovviamente lineare.
+	\item L'applicazione nulla, che associa ad ogni elemento lo zero dello spazio di arrivo: $0(v)=0_Z$ per ogni $v\in V$, anch'essa lineare in modo ovvio.
+	\item Sia $W$ un sottospazio di $V$: chiamiamo \emph{proiezione canonica} in $W$ la funzione $\pi\colon V\to V\quot W$ che ad ogni $v\in V$ associa la classe di equivalenza $[v]_W=W+v$.
+		Tale funzione è additiva in quanto per $a,b\in V$, $\pi(a+b)=W+(a+b)=(W+a)+(W+b)=\pi(a)+\pi(b)$.
+		È anche omogenea perch\'e $\pi(\lambda a)=W+\lambda a=\lambda(W+a)=\lambda\pi(a)$.
+		La funzione $\pi$ è quindi un'applicazione lineare.
+	\item La funzione $f\colon\R^2\to\R^2$ data da $f([x,y]^T)=[x+y,y+1]^T$ non è un'applicazione lineare, poich\'e $f([0,0]^T)=[0,1]^T\ne[0,0]^T$.
 \end{itemize}
 
-Un'applicazione è \emph{iniettiva} se due elementi distinti hanno immagini distinte, o equivalentemente se ogni immagine ha al più una sola controimmagine, ossia
-Quindi se $\phi$ è iniettiva, posto $  a\neq   b$, deve risultare $\phi(  a)\neq\phi(  b)$, questo per qualunque coppia $  a,  b$ in cui è definita $\phi$.
-
-Un'applicazione è \emph{suriettiva} se ogni elemento dello spazio di arrivo ha una controimmagine in quello di partenza.
-Per cui dati $  w\in W$, con $V,W$ spazi vettoriali sul generico campo $K$ e dato l'omomorfismo $L\colon V\to W$, si ha almeno un $  v\in V$ tale per cui $L(  v) =   w$. 
-
-\begin{definizione} \label{d:isomorfismo-lineare}
-	Un'applicazione lineare che è sia iniettiva che suriettiva è detta \emph{isomorfismo lineare} (o solo isomorfismo).
-\end{definizione}
+L'iniettività e la suriettività delle applicazioni lineari sono definite allo stesso modo di una qualsiasi funzione.
+In particolare, un'applicazione lineare che è sia iniettiva che suriettiva è detta \emph{isomorfismo lineare} (o solo isomorfismo).
 Due spazi vettoriali $V$ e $Z$ legati da un isomorfismo $T\colon V\to Z$ sono detti \emph{isomorfi}, e si indica ciò con la scrittura $V\cong Z$.
 
+Come ogni omomorfismo, definiamo un nucleo anche per le applicazioni lineari.
 \begin{definizione} \label{d:nucleo-applicazione-lineare}
-	Si definisce \emph{nucleo} dell'omomorfismo $T$ l'insieme degli elementi $  x\in V$ tali per cui $T(  x)=0_Z$:
+	Si definisce \emph{nucleo} dell'omomorfismo $T$ l'insieme degli elementi $x\in V$ tali per cui $T(x)=0_Z$:
 	\begin{equation*}
-		\Ker T=\{  x\in V\colon T(  x)=0_Z\}.
+		\Ker T=\{x\in V\colon T(x)=0_Z\}.
 	\end{equation*}
 \end{definizione}
-
-Per le applicazioni lineari, si può ora tradurre in una condizione più semplice l'iniettività:
+La linearità permette una facile verifica dell'iniettività di un'applicazione lineare.
 \begin{teorema} \label{t:iniettivita-nucleo}
-	Sia $T\in\lin(V,Z)$.
-	Esso è iniettivo se e solo se $\Ker T=\{0_V\}$.
+	Un'applicazione lineare $T\in\lin(V,Z)$ è iniettiva se e solo se $\Ker T=\{0_V\}$.
 \end{teorema}
 \begin{proof}
-	Sia $T$ iniettivo: per definizione, $T(  v)=T(  w)$ solo se $  v=  w$; poiché $T(0_V)=0_Z$, allora non può esistere controimmagine di $0_Z$ diversa dallo $0_V$, quindi $\Ker T$ non può che essere composto soltanto dallo $0_V$.
+	Per ogni applicazione lineare vale $T(0_V)=0_Z$, come già visto.
+	Per l'iniettività, ogni $z\in Z$ ha un'unica controimmagine, quindi l'unico $v\in V$ per cui $T(v)=0_Z$ è proprio $0_V$, di conseguenza $\Ker T=\{0_V\}$.
 
-	Sia ora $\Ker T=\{0_V\}$.
-	Se $T(  v)=T(  w)$, ossia $T(  v)-T(  w)=0_Z$, per linearità si ha $T(  v-  w)=0_Z$, cioè $  v-  w\in\Ker T$.
-	Ma dato che l'unico elemento del nucleo di $T$ è $0_V$, risulta $  v-  w=0_V$ cioè $  v=  w$, dunque $T$ è iniettivo.
+	Viceversa, ipotizziamo $\Ker T=\{0_V\}$.
+	Se $T(v)=T(w)$ allora $T(v)-T(w)=0_Z$, e per linearità si ha $T(v-w)=0_Z$, cioè $v-w\in\Ker T$.
+	Ma $\Ker T=\{0_V\}$ implica $v-w=0_V$, dunque $v=w$ e $T$ è iniettiva.
 \end{proof}
 Le applicazioni lineari conservano anche i rapporti tra sottospazi: dati $W,U$ sottospazi se $W\leq V$, e $T\colon V\to Z$, allora $T(W)\leq Z$; analogamente le controimmagini di $U\leq Z$ sono $T^{-1}(U)\leq V$.
 Ad esempio, siano $  y_1,  y_2\in T(W)$.
