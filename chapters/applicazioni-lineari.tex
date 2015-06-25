@@ -47,30 +47,32 @@ La linearità permette una facile verifica dell'iniettività di un'applicazione 
 	Se $T(v)=T(w)$ allora $T(v)-T(w)=0_Z$, e per linearità si ha $T(v-w)=0_Z$, cioè $v-w\in\Ker T$.
 	Ma $\Ker T=\{0_V\}$ implica $v-w=0_V$, dunque $v=w$ e $T$ è iniettiva.
 \end{proof}
-Le applicazioni lineari conservano anche i rapporti tra sottospazi: dati $W,U$ sottospazi se $W\leq V$, e $T\colon V\to Z$, allora $T(W)\leq Z$; analogamente le controimmagini di $U\leq Z$ sono $T^{-1}(U)\leq V$.
-Ad esempio, siano $  y_1,  y_2\in T(W)$.
-Essi certamente hanno le loro controimmagini in $W$: siano esse $  w_1,  w_2\in W\colon T(  w_1)=  y_1$ e $T(  w_2)=  y_2$.
-Allora $T(  w_1+  w_2)=T(  w_1)+T(  w_2)=  y_1+  y_2\in T(W)$, poiché $  w_1+  w_2\in W$ dato che è uno spazio vettoriale.
-Analogamente, dati $  y\in T(W)$ e $  w\in W$ per i quali $T(  w)=  y$, si ha $T(\lambda  w)=\lambda T(  w)=\lambda  y\in T(W)$.
-Inoltre poiché $\{0_Z\}\leq Z$, si ha che $\Ker T\leq V$.
 
 \begin{definizione} \label{d:immagine-applicazione-lineare}
 	Sia $T\in\lin(V,Z)$.
-	Si definisce \emph{immagine} di $T$ l'insieme degli elementi $  z\in Z$ per i quali esiste una controimmagine $  v\in V$:
+	Si definisce \emph{immagine} di $T$ l'insieme degli elementi $z\in Z$ per i quali esiste una controimmagine $v\in V$:
 	\begin{equation*}
-		\Imm T=\{  z\in Z\colon\exists   v\in V\colon T(  v)=  z\}.
+		\Imm T=\{z\in Z\colon\exists v\in V\colon T(v)=z\}.
 	\end{equation*}
 \end{definizione}
 Sia il nucleo che l'immagine di un omomorfismo $T\in\lin(V,Z)$ sono sottospazi vettoriali, rispettivamente di $V$ e di $Z$.
 Infatti:
 \begin{itemize}
-	\item Siano $  v,  w\in\Ker T$ e $k\in K$.
-		Allora $T(  v+  w)=T(  v)+T(  w)=0_V+0_V=0_V$, e $T(k  v)=kT(  v)=k0_V=0_V$, quindi $  v+  w$ e $k  v$ appartengono a $\Ker T$.
-	\item Siano $  y,  z\in\Imm T$ e $k\in K$.
-		Esistono due vettori $  a,  b\in V$ per i quali $T(  a)=  y$ e $T(  b)=  z$.
-		Allora $  z+  y=T(  a)+T(  b)=T(  a+  b)$, cioè $  z+  y$ è l'immagine di un elemento $  a+  b$, che appartiene $V$ che è uno spazio vettoriale; analogamente $T(k  a)=kT(  a)=k  y$, quindi $k  y$ è a sua volta l'immagine di un elemento $k  a\in V$.
-		Di conseguenza $  z+  y$ e $k  y$ appartengono ancora a $\Imm T$.
+	\item Siano $v,w\in\Ker T$ e $\lambda \in K$.
+		Allora $T(v+w)=T(v)+T(w)=0_Z+0_Z=0_Z$, e $T(\lambda v)=\lambda T(v)=\lambda 0_Z=0_Z$, quindi $v+w,\lambda v\in\Ker T$.
+	\item Siano $y,z\in\Imm T$ e $\mu\in K$.
+		Esistono due vettori $a,b\in V$ per i quali $T(a)=y$ e $T(b)=z$.
+		Allora $z+y=T(a)+T(b)=T(a+b)$, cioè $z+y$ è l'immagine di un elemento $a+b$, che appartiene ancora a $V$; analogamente $T(\mu a)=\mu T(a)=\mu y$, quindi $\mu y$ è a sua volta l'immagine di un elemento $\mu a\in V$.
+		Di conseguenza $z+y$ e $\mu y$ appartengono ancora a $\Imm T$.
 \end{itemize}
+
+\begin{osservazione} \label{o:applicazioni-sottospazi}
+	Le applicazioni lineari conservano, in generale, i rapporti tra sottospazi: dati due sottospazi $W\le V$ e $U\le Z$ e un'applicazione lineare $T\colon V\to Z$, allora $T(W)\leq \Imm T$; analogamente le controimmagini di $U\le \Imm T$ sono $T^{-1}(U)\leq V$.
+
+	Ad esempio, siano $y_1,y_2\in T(W)$.
+	Essi certamente hanno le loro controimmagini in $W$: siano esse $w_1,w_2\in W$, per le quali $T(w_1)=y_1$ e $T(w_2)=y_2$.
+	Allora per $\lambda,\mu\in K$ risulta $T(W)\ni T(\lambda w_1+\mu w_2)=\lambda T(w_1)+\mu T(w_2)=\lambda y_1+\mu y_2$, poiché $\lambda w_1+\mu w_2\in W$: di conseguenza $T(W)\le\Imm T$ (ma anche $T(W)\le Z$).
+\end{osservazione}
 
 \section{Teoremi degli isomorfismi}
 Il seguente teorema è importante perché consente di esprimere l'immagine di un omomorfismo come somma di un elemento del suo nucleo e di una sua immagine.
