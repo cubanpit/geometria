@@ -75,22 +75,24 @@ Infatti:
 \end{osservazione}
 
 \section{Teoremi degli isomorfismi}
-Il seguente teorema è importante perché consente di esprimere l'immagine di un omomorfismo come somma di un elemento del suo nucleo e di una sua immagine.
 \begin{teorema}
-	Siano $T\in\lin(V,Z)$ e $  z$ un elemento di $Z$ per cui $T(x)=z$, con $  x\in V$.
-	La classe di equivalenza $\Ker T+  x$ è l'insieme degli elementi $  y$ di $V$ che sono controimmagini di $  z$:
+	Sia $T\in\lin(V,Z)$, e fissiamo $z\in \Imm T$.
+	Preso $x\in V$ tale che $T(x)=z$, la classe di equivalenza $\Ker T+x$ è l'insieme degli elementi $y$ di $V$ che sono controimmagini di $z$:
 	\begin{equation*}
-		V/ \Ker T = \Ker T+  x=\{  y\in V\colon T(  y)=  z\}.
+		 \Ker T+x=\{y\in V\colon T(y)=z\}.
 	\end{equation*}
 \end{teorema}
 \begin{proof}
-	Un elemento della classe $\Ker T+  x$ è del tipo $\alpha+  x$, con $\alpha\in\Ker T$.
-	La sua immagine è $T(\alpha+  x)=T(\alpha)+T(  x)=0_Z+T(  x)\in Z$, quindi $\Ker T+  x\subseteq\{  y\in V\colon T(  y)=  z\}$.
+	Sia $v\in\Ker T+x$, cioè $v=\alpha+x$ per un certo $\alpha\in\Ker T$.
+	La sua immagine è $T(v)=T(\alpha)+T(x)=0_Z+T(x)=T(x)=z$, quindi $v\in\{y\in V\colon T(y)=z\}$ ossia $\Ker T+x\subseteq\{y\in V\colon T(y)=z\}$.
 
-	Sia invece $  y\in V$, tale che $T(  y)=  z$: questo elemento appartiene a $\Ker T+  x$, e si può sempre esprimere come $y=\beta+  x$ con $\beta\in\Ker T$.
-	Allora $T(  y)=T(\beta)+T(  x)=0_Z+T(  x)$; posti $T(  x)=T(  y)=  z$, si ha $T(  x)-T(  y)=0_Z$, ossia $  x-  y\in\Ker T$: allora $\exists\beta\in\Ker T$ per cui $  x-  y=\beta$, oppure $  y=  x+\beta$, cioè ogni $  y$ avente un'immagine in $Z$ tramite $T$ appartiene al laterale $\Ker T+  x$.
+	Sia invece $w\in\{y\in V\colon T(y)=z\}$: possiamo scriverlo come $w=\beta+x$ per un certo $\beta\in V$.
+	Allora $T(w)=T(\beta)+T(x)$, ma $T(w)=T(x)$ per come è scelto $w$ quindi $T(\beta)=T(w)-T(x)=0$ poich\'e $T(w)=T(x)=z$.
+	Di conseguenza $\beta\in\Ker T$, ossia $w\in\Ker T+x$ vale a dire $\{y\in V\colon T(y)=z\}\subseteq\Ker T+x$.
+
 	Quindi, poiché i due insiemi si includono a vicenda, devono coincidere.
 \end{proof}
+
 \begin{teorema} \label{t:dimensione-quoziente}
 	Sia $W\leq V$ con $V$ di dimensione finita.
 	La dimensione di $V/W$ è finita e vale $\dim V-\dim W$.
