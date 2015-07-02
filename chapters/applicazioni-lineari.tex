@@ -118,56 +118,70 @@ Combinando le due affermazioni, risulta che l'immagine di una base tramite un is
 \end{proof}
 
 
-\begin{teorema}[Primo teorema dell'isomorfismo] \label{t:primo-isomorfismo}
-	Sia $T\in\lin(V,Z)$.
-	Esiste ed è unico un omomorfismo iniettivo $\tilde{T}\in\lin(V\quot\Ker T,Z)$ tale che $\tilde{T}\circ\pi=T$, dove $\pi$ è la proiezione canonica da $V$ in $V\quot\Ker T$.
-	Allora $V\quot\Ker T\cong\Imm T$.
-	\begin{figure}[h!]
-		\centering
-		\begin{tikzpicture}
-			\node (V) at (-1,1.5) {$V$};
-			\node (Z) at (1,1.5) {$Z$};
-			\node (K) at (0,0) {$V\quot\Ker T$};
-			\draw [->] (V) to node[above]{$T$} (Z);
-			\draw [->] (V) to node[left]{$\pi$} (K);
-			\draw [->] (K) to node[right]{$\tilde{T}$} (Z);
-		\end{tikzpicture}
-	\end{figure}
+\begin{teorema}[Primo teorema dell'isomorfismo] \label{t:isomorfismo-1}
+	Siano $V,Z$ spazi vettoriali sul campo $K$, $T\colon V\to Z$ un'applicazione lineare e $\pi\colon V\to V\quot\Ker T$ la proiezione canonica $x\mapsto\Ker T+x$.
+	Esiste ed è unica un'applicazione lineare iniettiva $\tilde{T}\in\lin(V\quot\Ker T,Z)$ tale che $\tilde{T}\circ\pi=T$.
+	Inoltre
+	\begin{equation}
+		V\quot\Ker T\cong T(V).
+		\label{eq:isomorfismo-1}
+	\end{equation}
 \end{teorema}
+Un altro modo di enunciare il teorema è affermare che $\tilde{T}$ rende commutativo il grafico seguente.
+\begin{figure}[h!]
+	\centering
+	\begin{tikzpicture}
+		\node (V) at (-1,1.5) {$V$};
+		\node (Z) at (1,1.5) {$Z$};
+		\node (K) at (0,0) {$V\quot\Ker T$};
+		\draw [->] (V) to node[above]{$T$} (Z);
+		\draw [->] (V) to node[left]{$\pi$} (K);
+		\draw [->] (K) to node[right]{$\tilde{T}$} (Z);
+	\end{tikzpicture}
+\end{figure}
 \begin{proof}
-	Verifichiamo che l'applicazione è ben definita, ossia che non dipenda dal rappresentante scelto per le classi in $V\quot\Ker T$, dimostriamo poi la linearità e infine l'iniettività.
+	L'applicazione $\tilde{T}$ è naturalmente definita come $\tilde{T}(\Ker T+x)=T(x)$.
 
-	Gli elementi di $V\quot\Ker T$ sono del tipo $\Ker T+  a$, e la proiezione canonica $\pi$ manda $  a$ in $\Ker T+  a$.
-	Deve quindi risultare $\tilde{T}\big(\pi(  a)\big)=\tilde{T}(\Ker T+  a)=T(  a)$.
-	Affinché $\tilde{T}$ sia ben definito, se $\Ker T+  a=\Ker T+  b$ deve essere $T(  a)=T(  b)$.
-	Questo è mostrato applicando $T$ all'uguaglianza, e la seconda segue automaticamente per la linearità di $T$, oppure notando che $  a\sim  b$ quando $  a-  b\in\Ker T$, e in tal caso $0_Z=T(  a-  b)=T(  a)-T(  b)$ cioè $T(  a)=T(  b)$.
-	Se poi $\Ker T+  a$ e $\Ker T+  b$ sono distinte, si ha $  a+  b\notin\Ker T$: sia quindi per assurdo che $\tilde{T}(\Ker T+  a)=\tilde{T}(\Ker T+  b)$, cioè per definizione dell'applicazione lineare $\tilde{T}$ che $T(  a)=T(  b)$, che è in contraddizione con quanto ipotizzato in precedenza.
-	Quindi l'applicazione esiste unica.
+	Verifichiamo innanzitutto che l'applicazione $\tilde{T}$ sia \emph{ben definita}, ossia che $\tilde{T}(X)$ non dipenda dal rappresentante scelto per la classe	$X$.
+	Sia $\Ker T+x\in V\quot\Ker T$, e prendiamo un altro rappresentante $y\in V$, tale che $\Ker T+x=\Ker T+y$: le immagini delle due classi dovranno coincidere.
+	Dato che $x\sim y$, risulta $x-y\in\Ker T$, ma allora $\tilde{T}(\Ker T+x)-\tilde{T}(\Ker T+y)=T(x)-T(y)=T(x-y)=0_Z$ cioè $\tilde{T}(\Ker T+x)=\tilde{T}(\Ker T+y)$.
+	Analogamente, se per un $w\in V$ si avesse $\Ker T+x\ne\Ker T+w$, allora anche $\tilde{T}(\Ker T+x)\ne\tilde{T}(\Ker T+w)$: è sufficiente notare che se, per assurdo, le immagini coincidessero, allora dovrebbero coincidere anche le preimmagini, poich\'e risulterebbe $x-w\in\Ker T$.
+	Quindi l'applicazione è ben definita.
 
-	Si considerino le due classi di $V\quot\Ker T$ con rappresentante $  a$ e $  b$: applicando $\tilde{T}$ alla loro somma (come definita nel capitolo \ref{sec:spazi_quoziente}) si ottiene
-	\begin{equation}
-		\tilde{T}[(\Ker T+  a)\oplus(\Ker T+  b)]=\tilde{T}(\Ker T+  a)+\tilde{T}(\Ker T+  b)=T(  a)+T(  b),
-	\end{equation}
-	e allo stesso tempo
-	\begin{equation}
-		\tilde{T}[(\Ker T+  a)\oplus(\Ker T+  b)]=\tilde{T}[\Ker T+(  a+  b)]=T(  a+  b)=T(  a)+T(  b).
-	\end{equation}
-	perciò $\tilde T$ è lineare.
+	L'unicità è immediata: supponiamo che esista un'altra applicazione $U\colon V\quot\Ker T\to Z$ tale che $U\big(\pi(x)\big)=T(x)$.
+	Per ogni $y\in V\quot\Ker T$ esiste $x\in V$ tale per cui $\pi(x)=y$, dunque $U(y)=U\big(\pi(x)\big)=T(x)=\tilde{T}\big(\pi(x)\big)=\tilde{T}(y)$, ma allora $U=\tilde{T}$.
 
-	Consideriamo il $\Ker \tilde{T}$: esso è definito da
-	\begin{equation*}
-		\Ker \tilde{T} = \{\Ker T +  v\in V/\Ker T\colon T(  v) = 0 \}.
-	\end{equation*}
-	Si ha quindi che $\Ker \tilde{T}$ si riduce al solo $\Ker T$ e per come $\tilde{T}$ è definita questo si riduce al solo zero.
-	Ciò prova che $\tilde{T}$ è iniettiva.
-	Inoltre, $T(V)$ è anche automaticamente suriettiva poichè tutti gli elementi su cui agisce $T$ sono queli su cui agisce anche $\tilde{T}$), dunque $\tilde{T}$ è un isomorfismo: allora $V\quot\Ker T\cong\Imm T$.
+	Mostriamo ora che è lineare, rispetto alle operazioni nello spazio quoziente introdotte nella sezione \ref{sec:spazi_quoziente}.
+	Prendiamo $\Ker T+a,\Ker T+b\in V\quot\Ker T$ e $\lambda\in K$: risulta
+	\begin{multline}
+		\tilde{T}\big((\Ker T+a)+\lambda(\Ker T+b)\big)=\tilde{T}\big(\!\Ker T+(a+\lambda b)\big)=T(a+\lambda b)=\\=T(a)+\lambda T(b)=\tilde{T}(\Ker T+a)+\lambda\tilde{T}(\Ker T+b)
+	\end{multline}
+	perciò $\tilde{T}$ è lineare.
+
+	Il nucleo di $\tilde{T}$ è $\Ker\tilde{T}=\{\Ker T+v\in V/\Ker T\colon T(v)=0_Z\}$.
+	Ma se $T(v)=0_Z$ allora $v\in\Ker T$, perciò $\Ker T+v=\Ker T+0_V$ ossia $\Ker\tilde{T}=\{\Ker T+0_V\}$: ciò prova che $\tilde{T}$ è iniettiva.
+
+	Se infine prendiamo l'applicazione $T$ solo tra $V$ e la sua immagine $T(V)$, è ovviamente suriettiva.
+	Possiamo quindi trovare un'unica applicazione $L\colon V\quot\Ker T\to T(V)$ sfruttando quanto dimostrato finora.
+	Se $z\in T(V)$ allora esiste $v\in V$ tale che $T(v)=z$, dunque è sufficiente prendere $a=\Ker T+v$ per ottenere $L(a)=z$, perciò per ogni $z\in T(V)$ troviamo sempre una controimmagine in $L$: ciò prova che $L\colon V\quot\Ker T\to T(V)$ è anche suriettiva, oltre che iniettiva.
+	
+	Di conseguenza $L\colon V\quot\Ker T\to T(V)$ è un isomorfismo.
 \end{proof}
-\begin{corollario}
+
+\begin{corollario} \label{cor:nullita-rango}
 	Se $V$ ha dimensione finita e $T\in\lin(V,Z)$, allora $\dim V=\dim\Ker T+\dim\Imm T$.
 \end{corollario}
 \begin{proof}
 	Segue facilmente dal teorema precedente e dal \ref{t:dimensione-quoziente}.
 \end{proof}
+Da quest'ultima formula possiamo dedurre delle proprietà generali su nucleo e immagine di applicazioni vettoriali.
+Se $T\in\lin(V,Z)$, distinguiamo alcuni casi.
+\begin{itemize}
+	\item Se $\dim V>\dim Z$, allora $T$ non può essere iniettiva, infatti $\Imm T\le Z$ implica $\dim\Imm T\le\dim Z$ da cui $\dim\Ker T=\dim V-\dim\Imm T>0$.
+	\item Se $\dim V<\dim Z$, allora $T$ non può essere suriettiva, dato che $\dim\Imm T=\dim V-\dim\Ker T\le\dim V<\dim Z$ quindi non può risultare $\Imm T=Z$.
+	\item Se $\dim V=\dim Z$, come è per gli endomorfismi (in cui $Z=V$), iniettività e suriettività si implicano a vicenda: se $T$ è iniettiva allora $\dim\Ker T=0$ da cui $\dim\Imm T=\dim Z$, cioè $\Imm T=Z$ quindi $T$ è suriettiva.
+		Viceversa, se $T$ è suriettiva allora $\dim\Imm T=\dim Z=\dim V$ da cui $\dim\Ker T=0$ ossia $\Ker T=\{0\}$.
+\end{itemize}
 
 \begin{teorema}[Secondo teorema dell'isomorfismo]
 	Siano $W,Z$ sottospazi vettoriali di $V$.
@@ -205,7 +219,7 @@ Combinando le due affermazioni, risulta che l'immagine di una base tramite un is
 	\end{align*}
 	Essendo $Z + 0_W$ si ha che l'unica classe che sta nel nucleo è $Z$ poiche l'altra si riduce al solo $0_W$.
 	Abbiamo prima verificato $(  w +  z)\in Z$, questo per gli stessi passaggi compiuti inizialmente, che avevano come scopo verificare se l'applicazione fosse ben definita.
-	Il $\Ker T$ si riduce allora al solo $Z$ e per come $T$ è definito è quindi composto dal solo zero, come dimostrato per il primo teorema dell'isomorfismo \ref{t:primo-isomorfismo}.
+	Il $\Ker T$ si riduce allora al solo $Z$ e per come $T$ è definito è quindi composto dal solo zero, come dimostrato per il primo teorema dell'isomorfismo \ref{t:isomorfismo-1}.
 	Si conclude che il $\Ker T$ si riduce al solo zero da cui l'iniettività dell'applicazione. 
 \end{proof}
 \begin{corollario}[Formula di Grassmann]
