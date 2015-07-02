@@ -74,6 +74,30 @@ Infatti:
 	Allora per $\lambda,\mu\in K$ risulta $T(W)\ni T(\lambda w_1+\mu w_2)=\lambda T(w_1)+\mu T(w_2)=\lambda y_1+\mu y_2$, poiché $\lambda w_1+\mu w_2\in W$: di conseguenza $T(W)\le\Imm T$ (ma anche $T(W)\le Z$).
 \end{osservazione}
 
+\begin{teorema}
+	Siano $T\in\lin(V,Z)$ e $\mathcal E=\{e_i\}_{i\in I}\subset V$.
+	\begin{enumerate}
+		\item Se $\mathcal E$ è un sistema di generatori per $V$ e $T$ è suriettiva, allora $\{T(e_i)\}_{i\in I}$ genera $Z$;
+		\item Se $\mathcal E$ è linearmente indipendente in $V$ e $T$ è iniettiva, allora $\{T(e_i)\}_{i\in I}$ è linearmente indipendente in $Z$.
+	\end{enumerate}
+\end{teorema}
+\begin{proof}
+	\begin{enumerate}
+		\item Sia $z\in Z$ e $T$ suriettiva: allora esiste $v\in V$ per cui $T(v)=z$.
+			Dato che $\mathcal E$ genera $V$, possiamo scrivere $v$ come una combinazione lineare $v=\lambda_1e_1+\lambda_2e_2+\dots+\lambda_re_r$, con $\lambda_i\in K$ e $\{e_1,e_2,\dots,e_r\}\subset\mathcal E$.
+			Risulta allora $z=T(v)=\lambda_1T(e_i)+\dots+\lambda_rT(e_r)$, cioè $\{T(e_1),\dots,T(e_r)\}$ è un sistema di generatori per $Z$.
+		\item Sia ora $T$ iniettiva e $I_0$ un sottoinsieme di cardinalità finita di $I$.
+			Consideriamo una combinazione lineare dei $T(e_i)$ nulla: per linearità
+			\begin{equation*}
+				0_Z=\sum_{j\in I_0}\lambda_jT(e_j)=T\bigg(\sum_{j\in I_0}\lambda_je_j\bigg).
+			\end{equation*}
+			Questo significa che $\sum_{j\in I_0}\lambda_je_j\in\Ker T$, ma poiché $T$ è iniettivo il suo nucleo è composto dal solo $0_V$.
+			Allora $\sum_{j\in I_0}\lambda_je_j=0_V$, e dato che $\{e_i\}_{i\in I_0}$ è un sistema linearmente indipendente ciò può accadere se e solo se $\forall j\in I_0$ $\lambda_j=0_K$.
+			Quindi $\{T(e_j)\}_{j\in I}$ è un sistema linearmente indipendente.\qedhere
+	\end{enumerate}
+\end{proof}
+Combinando le due affermazioni, risulta che l'immagine di una base tramite un isomorfismo è una base dello spazio di arrivo.
+
 \section{Teoremi degli isomorfismi}
 \begin{teorema}
 	Sia $T\in\lin(V,Z)$, e fissiamo $z\in \Imm T$.
@@ -93,46 +117,6 @@ Infatti:
 	Quindi, poiché i due insiemi si includono a vicenda, devono coincidere.
 \end{proof}
 
-\begin{teorema} \label{t:dimensione-quoziente}
-	Sia $W\leq V$ con $V$ di dimensione finita.
-	La dimensione di $V/W$ è finita e vale $\dim V-\dim W$.
-\end{teorema}
-\begin{proof}
-	Il sottospazio $W$ ha certamente dimensione finita: sia $\{  e_i\}_{i=1}^n$ una base di $W$.
-	Essa si può estendere ad una base di V, per il teorema \ref{estensione-base}.
-	Allora $E=\{  e_1,  e_2,\dots,  e_n,  f_{n+1},\dots,  f_{n+m}\}$ è una base di $V$.
-	Ora, prendiamo $W+  a$, e $  a\in V$ si può scrivere come combinazione lineare degli elementi di $E$: $  a=\lambda_1  e_1+\lambda_2  e_2+\dots+\lambda_n  e_n+\lambda_{n+1}  f_{n+1}+\dots+\lambda_{n+m}  f_{n+m}$.
-	Poiché i termini fino a $\lambda_n  e_n$ individuano un elemento di $W$, si ha che $a=W+\mu_1  f_{n+1}+\dots+\mu_m  f_{n+m}$.
-	Per la definizione della somma $\oplus$, questo è equivalente ad $a=\mu_1(W+  f_{n+1})\oplus\dots\oplus\mu_m(W+  f_{n+m})$, ma allora la famiglia $\{W+  f_{n+i}\}_{i=1}^m$ è un sistema di generatori di $W$, avente ovviamente $m$ elementi.
-	Una combinazione lineare di questa base può essere allora nulla se e solo se tutti i coefficienti sono nulli: sia quindi
-	\begin{equation*}
-		\lambda_1(W+  f_{n+1})\oplus\lambda_2(W+  f_{n+2})\oplus\dots\oplus\lambda_m(W+  f_{n+m})=0_{V/W}=W+0_V.
-	\end{equation*}
-	Essa è per definizione equivalente a $W+(\lambda_1  f_{n+1}+\dots+\lambda_m  f_{n+m})$.
-	Per l'uguaglianza precedente, quindi, deve essere $\lambda_1  f_{n+1}+\dots+\lambda_m  f_{n+m}=0_V$, ma dato che l'insieme $\{  f_{n+i}\}_{i=1}^m$ è linearmente indipendente, questo può accadere se e solo se tutti i $\lambda_i$ sono nulli.
-	Quindi anche l'insieme $\{W+  f_{n+i}\}_{i=1}^m$ è linearmente indipendente, e poiché genera $V/W$ è una base di $V/W$, che quindi ha dimensione $m$.
-\end{proof}
-\begin{teorema}
-	Sia $T\in\lin(V,Z)$ e $\{  e_i\}_{i\in I}\subset V$.
-	Allora:
-	\begin{enumerate}
-		\item Se $\{  e_i\}_{i\in I}$ è un sistema di generatori per $V$ e $T$ è suriettivo, allora $\{T(  e_i)\}_{i\in I}$ è un sistema di generatori per $Z$;
-		\item Se $\{  e_i\}_{i\in I}$ è un sistema linearmente indipendente e $T$ è iniettivo, allora $\{T(  e_i)\}_{i\in I}$ è linearmente indipendente in $Z$.
-	\end{enumerate}
-\end{teorema}
-\begin{proof}
-	Sia $  z\in Z$: poiché $T$ è suriettivo, esiste $  v\in V$ per cui $T(  v)=  z$.
-	Allora dato che $  v$ è dato da una combinazione lineare di elementi del sistema di generatori, cioè $  v=\lambda_1  e_1+\lambda_2  e_2+\dots+\lambda_r  e_r$, con $\lambda_i\in K$ e $\{  e_1,  e_2,\dots,  e_r\}\subset\{  e_i\}_{i\in I}$, si ha che $  z=T(  v)=\lambda_1T(  e_i)+\dots+\lambda_rT(  e_r)$, quindi $\{T(  e_1),\dots,T(  e_r)\}$ è un sistema di generatori per $Z$.
-
-	Sia ora $I_0$ un sottoinsieme di cardinalità finita di $I$.
-	Presa una combinazione lineare che dia $0_Z$, per la linearità dell'operazione $T$ si ha
-	\begin{equation*}
-		\sum_{j\in I_0}\lambda_jT(  e_j)=T\big(\sum_{j\in I_0}\lambda_j  e_j\big)=0_Z.
-	\end{equation*}
-	Questo significa che $\sum_{j\in I_0}\lambda_j  e_j\in\Ker T$, ma poiché $T$ è iniettivo il suo nucleo è composto dal solo $0_V$.
-	Allora $\sum_{j\in I_0}\lambda_j  e_j=0_V$, e dato che $\{  e_i\}_{i\in I_0}$ è un sistema linearmente indipendente ciò può accadere se e solo se $\forall j\in I_0$ $\lambda_j=0_K$. Quindi $\{T(  e_j)\}_{j\in I_0}$ è un sistema linearmente indipendente.
-\end{proof}
-Dunque combinando le due affermazioni risulta che l'immagine di una base tramite un isomorfismo è una base per lo spazio di arrivo.
 
 \begin{teorema}[Primo teorema dell'isomorfismo] \label{t:primo-isomorfismo}
 	Sia $T\in\lin(V,Z)$.
