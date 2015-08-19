@@ -10,7 +10,7 @@ Si definisce \emph{gruppo} un insieme $G$ non vuoto munito di un'operazione bina
 \end{definizione}
 Dove non ci saranno ambiguità, d'ora in poi indicheremo l'operazione interna del gruppo come una moltiplicazione, omettendo il simbolo $*$: scriveremo dunque $x*y=xy$. L'inverso di un elemento $x$ sarà indicato, coerentemente, con $x^{-1}$.
 
-La struttura di gruppo si compone sempre di un insieme e di un'operazione, perciò si identifica convenzionalmente con la coppia $(G,*)$; uno insieme può formare gruppi differenti in base all'operazione associata.
+La struttura di gruppo si compone sempre di un insieme e di un'operazione, perciò si identifica convenzionalmente con la coppia $(G,*)$; un insieme può formare gruppi differenti in base all'operazione associata.
 Il gruppo è detto \emph{commutativo} (o \emph{abeliano}) se vale anche la proprietà commutativa, cioè $\forall x,y\in G$, $xy=yx$.
 
 L'elemento neutro di un gruppo è sempre unico: se $e$ ed $e'$ rispettano la seconda proprietà, allora $e'=ee'=e$ quindi coincidono.
@@ -79,7 +79,7 @@ Vediamo se questa suddivisione è buona, cioè se un elemento è categorizzato i
 	Siano le due classi $[a]=\{x\in X\colon x\sim a\}$ e $[a']=\{y\in X\colon y\sim a'\}$.
 	Sia $[a]\subseteq[a']$: preso un elemento $x\in[a]$, si ha ovviamente che $x\sim a$.
 	Poiché $a\sim a'$, per la proprietà transitiva $x\sim a'$ quindi $x\in[a']$, e viceversa per simmetria: allora $[a]\equiv[a']$.
-	Poniamo ora le due classi coincidenti, siccome $a\in[a]$ e $a'\in[a']$, poichè le due classi coincidono si ha che $a$ appartiene anche ad $[a']$ e $a'$ appartiene anche ad $[a]$, quindi $a\sim a'$.
+	Poniamo ora le due classi coincidenti, siccome $a\in[a]$ e $a'\in[a']$ e le due classi coincidono si ha che $a$ appartiene anche ad $[a']$ e $a'$ appartiene anche ad $[a]$, quindi $a\sim a'$.
 \end{proof}
 
 \begin{teorema}
@@ -127,7 +127,7 @@ Infatti l'addizione e la moltiplicazione che tutti conosciamo soddisfano questi 
 
 L'anello si dice \emph{commutativo} se anche $(A,\cdot)$ è commutativo, cioè $ab=ba$ $\forall a,b\in A$; la commutatività dell'addizione è sempre garantita dal fatto che $(A,+)$ è abeliano.
 L'elemento neutro dell'addizione in un anello esiste sempre, dato che $(A,+)$ è un gruppo: indicheremo tale elemento con $0$, o con $0_A$ se ci sarà bisogno di specificare l'anello al quale appartiene.
-L'esistenza dell'elemento neutro della moltiplicazione, invece, non è data per certa: se esiste, l'anello si dice \emph{dotato di unità}, e la indicheremo con $1$ o $1_A$.
+L'esistenza dell'elemento neutro della moltiplicazione, invece, non è data per certa: se esiste, l'anello si dice \emph{dotato di unità}, e lo indicheremo con $1$ o $1_A$.
 
 Ecco alcuni esempi di anelli.
 \begin{itemize}
@@ -153,7 +153,7 @@ Per $n<0$ questa operazione non è definita.
 Ricaviamo alcune semplici proprietà delle due operazioni.
 \begin{itemize}
 	\item $0_Aa=a0_A=0_A$.
-		Possiamo infatti scrivere sempre $0_Aa=(0_A+0_A)a$, e per la proprietà distributiva abbiamo $0_Aa=0_Aa+0_Aa$, per cui aggiungendo l'opposto $-0_Aa$ ai due membri (esiste sempre, essendo $(A,+)$ un gruppo) troviamo $0_aa=0$.
+		Possiamo infatti scrivere sempre $0_Aa=(0_A+0_A)a$, e per la proprietà distributiva abbiamo $0_Aa=0_Aa+0_Aa$, per cui aggiungendo l'opposto $-0_Aa$ ai due membri (esiste sempre, essendo $(A,+)$ un gruppo) troviamo $0_Aa=0$.
 		La dimostrazione è analoga per $a0_A$.
 	\item $(na)b=a(nb)=n(ab)$, che di dimostra facilmente sfruttando la proprietà distributiva partendo da $(a+a+\dots+a)b$.
 	\item $a(-b)=(-a)b=-(ab)$, ponendo $n=-1$ nella precedente.
